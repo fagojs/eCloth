@@ -1,7 +1,12 @@
+import { withRouter } from "react-router-dom";
+
 import "../css/menuItem.css";
 
-const MenuItem = ({ title, imageUrl, size }) => (
-  <div className={`${size} menu-item`}>
+const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => (
+  <div
+    className={`${size} menu-item`}
+    onClick={() => history.push(`${match.url}${linkUrl}`)}
+  >
     <div
       className="background-image"
       style={{
@@ -15,4 +20,6 @@ const MenuItem = ({ title, imageUrl, size }) => (
   </div>
 );
 
-export default MenuItem;
+/*HOC passing component and receiving 
+props like history,match,location from parents*/
+export default withRouter(MenuItem);
