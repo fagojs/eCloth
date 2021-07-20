@@ -1,5 +1,5 @@
 import Menu from "./menu.component";
-import "../css/homepage.css";
+import "../../css/home/homepage.css";
 
 const HomePage = () => {
   return (
