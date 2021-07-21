@@ -1,13 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
 
 const port = process.env.PORT || 5000;
 
+app.use(bodyParser.json());
 app.get("/", (req, res) => {
-  res.send("hello there");
+  res.send("hello from  here");
 });
 
 mongoose.connect(
