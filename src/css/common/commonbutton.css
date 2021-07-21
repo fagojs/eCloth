@@ -1,0 +1,16 @@
+.common-button {
+  height: 3rem;
+  min-width: 10rem;
+  background-color: black;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 0 3rem;
+}
+.common-button:hover {
+  background-color: #fff;
+  color: black;
+  border: 1px solid black;
+}

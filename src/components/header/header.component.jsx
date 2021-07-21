@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import "../../css/header/header.css";
-import "font-awesome/css/font-awesome.min.css";
 import { FiShoppingCart } from "react-icons/fi";
 
 const Header = () => (
@@ -16,6 +15,9 @@ const Header = () => (
       </Link>
       <Link className="others" to="/contact">
         CONTACT
+      </Link>
+      <Link className="others" to="/signin">
+        SIGN-IN
       </Link>
     </div>
   </div>
