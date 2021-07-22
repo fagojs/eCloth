@@ -10,7 +10,7 @@ router.post("/new-user", async (req, res) => {
   const { displayName, email, password } = req.body;
   //if	empty	any	field	?
   if (!displayName || !email || !password) {
-    return res.status(400).json("Please	fill	the	requirements	provided.");
+    return res.status(400).json("Please fill the requirements provided.");
   }
   try {
     //if	user	already	exists	?
@@ -18,7 +18,7 @@ router.post("/new-user", async (req, res) => {
     if (user) {
       return res
         .status(400)
-        .json({ message: "User	with	provided	email	already	exists." });
+        .json({ message: "User with provided email already exists." });
     }
     //if	new	user
     const newUser = new Users({
@@ -45,7 +45,7 @@ router.post("/new-user", async (req, res) => {
               user: {
                 id: savedUser.id,
                 displayName: savedUser.displayName,
-                email: savvedUser.email,
+                email: savedUser.email,
               },
             });
           }
@@ -54,7 +54,7 @@ router.post("/new-user", async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      message: "Error	registering	user.",
+      message: "Error registering user.",
     });
   }
 });
