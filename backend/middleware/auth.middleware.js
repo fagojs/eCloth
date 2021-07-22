@@ -5,18 +5,17 @@ auth = async (req, res, next) => {
   const token = req.header("x-auth-token");
   if (!token) {
     res.status(400).json({
-      message: "Unauthorized	access.",
+      message: "Unauthorized access.",
     });
   }
   try {
     //verify	token	provided	by	user
     const decoded = await jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
-    res.end();
     next();
   } catch (error) {
     res.status(400).json({
-      message: "Not	Authorized	User.",
+      message: "Not Authorized User.",
     });
   }
 };

@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use("/register", userRegisterRoutes);
-app.use("/login", userRegisterRoutes);
+app.use("/login", userLoginRoutes);
 
 app.listen(port, () => {
   console.log(`Listening to port:${port}`);
