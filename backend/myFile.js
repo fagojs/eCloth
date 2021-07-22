@@ -11,6 +11,9 @@ app.get("/", (req, res) => {
   res.send("hello from  here");
 });
 
+app.listen(port, () => {
+  console.log(`Listening to port:${port}`);
+});
 mongoose.connect(
   `${process.env.DB_USER}`,
   { useNewUrlParser: true, useUnifiedTopology: true },
@@ -18,6 +21,3 @@ mongoose.connect(
     console.log("Successfully connected to database.");
   }
 );
-app.listen(port, () => {
-  console.log(`Listening to port:${port}`);
-});
