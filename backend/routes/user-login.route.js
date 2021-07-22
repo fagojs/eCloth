@@ -2,6 +2,8 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const auth = require("../middleware/auth.middleware");
+
 const router = express.Router();
 
 const Users = require("../models/user.model");
@@ -49,6 +51,15 @@ router.post("/user", async (req, res) => {
       message: "Error	logging	in	user.",
     });
   }
+});
+
+//authorization	when	asked	user-data
+router.get("/user", auth, (req, res) => {
+  const userId = req.user.id;
+  const user = await Users.findById(userId).filter(
+    (person) => !person.password
+  );
+  re.json(user);
 });
 
 module.exports = router;
