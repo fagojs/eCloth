@@ -59,4 +59,4 @@ router.post("/new-user", async (req, res) => {
   }
 });
 
-module.export = router;
+module.exports = router;

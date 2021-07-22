@@ -54,12 +54,10 @@ router.post("/user", async (req, res) => {
 });
 
 //authorization	when	asked	user-data
-router.get("/user", auth, (req, res) => {
+router.get("/user", auth, async (req, res) => {
   const userId = req.user.id;
-  const user = await Users.findById(userId).filter(
-    (person) => !person.password
-  );
-  re.json(user);
+  const user = await Users.findById(userId).exclude("password");
+  res.json(user);
 });
 
 module.exports = router;
