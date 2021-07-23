@@ -23,4 +23,8 @@
 }
 .others {
   padding: 1rem 2rem;
+  font-weight: bold;
+}
+.others:hover {
+  transform: scale(1.1);
 }
