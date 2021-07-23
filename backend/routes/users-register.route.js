@@ -35,7 +35,7 @@ router.post("/new-user", async (req, res) => {
         const savedUser = await newUser.save();
         //creating	token	required	for	auth
         jwt.sign(
-          { id: savedUser.id },
+          { id: savedUser.id, displayName: savedUser.displayName },
           process.env.JWT_SECRET,
           { expiresIn: 3600 },
           (err, token) => {

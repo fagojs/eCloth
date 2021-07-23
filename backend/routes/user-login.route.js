@@ -31,7 +31,7 @@ router.post("/user", async (req, res) => {
       }
       //if	matched	password
       jwt.sign(
-        { id: user.id },
+        { id: user.id, displayName: user.displayName },
         process.env.JWT_SECRET,
         { expiresIn: 3600 },
         (err, token) => {
