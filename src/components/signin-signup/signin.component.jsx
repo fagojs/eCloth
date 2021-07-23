@@ -1,5 +1,7 @@
 import React from "react";
+import axios from "axios";
 
+import { apiEndPoint } from "../../config.json";
 import FormInput from "./form-input.component";
 import CommonButton from "../common/commonbutton.component";
 import "../../css/signin-signup/signin.css";
@@ -10,13 +12,27 @@ class SignIn extends React.Component {
     password: "",
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    this.setState({
-      email: "",
-      password: "",
-    });
+
+    //backend
+    const { email, password } = this.state;
+    try {
+      const userData = await axios.post(`${apiEndPoint}/login/user`, {
+        email,
+        password,
+      });
+      console.log(userData);
+      const jwt = userData.data.token;
+      localStorage.setItem("token", jwt);
+      window.location = "/";
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      }
+    }
   };
+
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
