@@ -22,7 +22,6 @@ class SignIn extends React.Component {
         email,
         password,
       });
-      console.log(userData);
       const jwt = userData.data.token;
       localStorage.setItem("token", jwt);
       window.location = "/";
