@@ -1,5 +1,8 @@
 import { Component } from "react";
 
+import axios from "axios";
+
+import { apiEndPoint } from "../../config.json";
 import FormInput from "./form-input.component";
 import CommonButton from "./../common/commonbutton.component";
 import "../../css/signin-signup/signup.css";
@@ -18,14 +21,25 @@ class SignUp extends Component {
     });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    this.setState({
-      displayName: "",
-      email: "",
-      password: "",
-    });
+
     //calling	backend
+    try {
+      const { displayName, email, password } = this.state;
+      const userData = await axios.post(`${apiEndPoint}/register/new-user`, {
+        displayName,
+        email,
+        password,
+      });
+      const jwt = userData.data.token;
+      localStorage.setItem("token", jwt);
+      window.location = "/";
+    } catch (err) {
+      if (err.response) {
+        alert(err.response.data.message);
+      }
+    }
   };
 
   render() {
