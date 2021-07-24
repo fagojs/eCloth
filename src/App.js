@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
 
 import HomePage from "./components/home/homePage.component";
@@ -7,18 +8,18 @@ import ShopPage from "./components/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInUp from "./components/signin-signup/signInUp.component";
 import Logout from "./components/signin-signup/logout.component";
+import setUser from "./redux/actions/user.action";
 
 import "./css/App.css";
 
 class App extends Component {
-  state = {};
-
   componentDidMount() {
+    const { setCurrentUser } = this.props;
     try {
       //decoding user object from token
       const storedToken = localStorage.getItem("token");
       const decodedUser = jwt_decode(storedToken);
-      this.setState({ decodedUser });
+      setCurrentUser({ currentUser: decodedUser });
     } catch (error) {
       if (error.response) {
         alert(error.response.message);
@@ -29,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header user={this.state.decodedUser} />
+        <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
@@ -41,4 +42,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(App);
