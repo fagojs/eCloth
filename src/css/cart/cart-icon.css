@@ -1,0 +1,18 @@
+.cart-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.shop-box {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+.item-count {
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 0.4rem;
+}
