@@ -1,3 +1,5 @@
+import CommonButton from "./../common/commonbutton.component";
+
 import "../../css/shop/collection-item.css";
 
 const CollectionItem = ({ id, imageUrl, name, price }) => (
@@ -10,6 +12,7 @@ const CollectionItem = ({ id, imageUrl, name, price }) => (
       <span className="name">{name}</span>
       <span className="price">${price}</span>
     </div>
+    <CommonButton>ADD TO CART</CommonButton>
   </div>
 );
 export default CollectionItem;
