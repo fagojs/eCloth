@@ -30,7 +30,7 @@
 .item-footer .price {
   margin-bottom: 0.5rem;
 }
-.common-button {
+.collection-item > .common-button {
   position: absolute;
   top: 15rem;
   width: 80%;
