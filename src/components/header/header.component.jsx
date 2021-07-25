@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import CartIcon from "../cart/cart-icon.component";
+import Dropdown from "./../cart/dropdown.component";
+
 import "../../css/header/header.css";
 import { FiShoppingCart } from "react-icons/fi";
 
-const Header = ({ user }) => {
-  const currentUser = user.currentUser;
+const Header = ({ user, hiddenDropdown }) => {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -20,10 +22,10 @@ const Header = ({ user }) => {
         <Link className="others" to="/contact">
           CONTACT
         </Link>
-        {currentUser ? (
+        {user ? (
           <React.Fragment>
             <Link className="others" to="/profile">
-              {currentUser.displayName}
+              {user.currentUser.displayName}
             </Link>
             <Link className="others" to="/logout">
               LOGOUT
@@ -34,13 +36,16 @@ const Header = ({ user }) => {
             REGISTER
           </Link>
         )}
+        <CartIcon />
       </div>
+      {hiddenDropdown ? null : <Dropdown />}
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
   user: state.user.currentUser,
+  hiddenDropdown: state.toggleDropdown.hidden,
 });
 
 export default connect(mapStateToProps)(Header);
