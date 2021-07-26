@@ -1,5 +1,8 @@
-const toggleDropdown = () => ({
+export const toggleDropdown = () => ({
   type: "TOGGLE_DROPDOWN",
 });
 
-export default toggleDropdown;
+export const addItem = (item) => ({
+  type: "ADD_ITEM",
+  payload: item,
+});
