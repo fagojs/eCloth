@@ -7,9 +7,23 @@ import "../../css/cart/dropdown.css";
 const Dropdown = ({ cartItems }) => (
   <div className="dropdown-container">
     <div className="dropdown-contents">
-      {cartItems.map((cartItem) => (
-        <CartItem key={cartItem.id} item={cartItem} />
-      ))}
+      {cartItems.length ? (
+        cartItems.map((cartItem) => (
+          <CartItem key={cartItem.id} item={cartItem} />
+        ))
+      ) : (
+        <span
+          style={{
+            height: "100%",
+            fontSize: "22px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          Your Cart Is Empty.
+        </span>
+      )}
     </div>
     <CommonButton>GO TO CHECKOUT</CommonButton>
   </div>
