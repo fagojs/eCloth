@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import toggleDropdown from "../../redux/actions/cart.action";
+import { toggleDropdown } from "../../redux/actions/cart.action";
 import { AiOutlineShopping } from "react-icons/ai";
 import "../../css/cart/cart-icon.css";
 
