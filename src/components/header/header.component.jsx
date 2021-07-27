@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import CartIcon from "../cart/cart-icon.component";
 import Dropdown from "./../cart/dropdown.component";
+import { selectCartHidden } from "../../redux/selectors/cart.selectors";
 
 import "../../css/header/header.css";
 import { FiShoppingCart } from "react-icons/fi";
@@ -45,7 +46,7 @@ const Header = ({ user, hiddenDropdown }) => {
 
 const mapStateToProps = (state) => ({
   user: state.user.currentUser,
-  hiddenDropdown: state.cart.hidden,
+  hiddenDropdown: selectCartHidden(state),
 });
 
 export default connect(mapStateToProps)(Header);

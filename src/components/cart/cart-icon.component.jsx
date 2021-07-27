@@ -1,14 +1,11 @@
 import { connect } from "react-redux";
 
 import { toggleDropdown } from "../../redux/actions/cart.action";
+import { selectCartItemsCount } from "../../redux/selectors/cart.selectors";
 import { AiOutlineShopping } from "react-icons/ai";
 import "../../css/cart/cart-icon.css";
 
-const CartIcon = ({ toggleDropdown, cartItems }) => {
-  let totalQuantity = 0;
-  cartItems.map((cartItem) => {
-    return (totalQuantity += cartItem.quantity);
-  });
+const CartIcon = ({ toggleDropdown, totalQuantity }) => {
   return (
     <div className="cart-icon" onClick={toggleDropdown}>
       <AiOutlineShopping className="shop-box" />
@@ -18,7 +15,7 @@ const CartIcon = ({ toggleDropdown, cartItems }) => {
 };
 
 const mapStateToProps = (state) => ({
-  cartItems: state.cart.cartItems,
+  totalQuantity: selectCartItemsCount(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
