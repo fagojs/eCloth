@@ -11,3 +11,8 @@ export const removeItem = (item) => ({
   type: "REMOVE_ITEM",
   payload: item,
 });
+
+export const decreaseItem = (item) => ({
+  type: "MINUS_ITEM",
+  payload: item,
+});
