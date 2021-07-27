@@ -10,8 +10,8 @@ import "../../css/checkout/checkout.css";
 const Checkout = ({ cartItems, totPrice }) => (
   <div className="checkout-page">
     <div className="checkout-headers">
-      <span className="checkout-img">Picture</span>
-      <span className="checkout-name">Description</span>
+      <span className="checkout-img">Product</span>
+      <span className="checkout-name">Name</span>
       <span className="checkout-quantity">Quantity</span>
       <span className="checkout-price">Price</span>
       <span className="checkout-remove">Remove</span>
