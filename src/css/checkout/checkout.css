@@ -1,0 +1,31 @@
+.checkout-page {
+  width: 60%;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem auto;
+}
+.checkout-headers {
+  width: 100%;
+  padding: 0.8rem 0;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid black;
+  font-size: 1.2rem;
+}
+.checkout-img,
+.checkout-name,
+.checkout-quantity,
+.checkout-price {
+  width: 22%;
+}
+.checkout-remove {
+  width: 10%;
+}
+.checkout-total {
+  margin-top: 2rem;
+  margin-left: auto;
+  font-size: 1.3rem;
+}
