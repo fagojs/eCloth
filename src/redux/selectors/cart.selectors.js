@@ -19,6 +19,16 @@ export const selectCartItemsCount = createSelector(
     return totalQuantity;
   }
 );
+export const selectCartTotalPrice = createSelector(
+  [selectCartItems],
+  (cartItems) => {
+    let totPrice = 0;
+    cartItems.map(
+      (cartItem) => (totPrice += cartItem.price * cartItem.quantity)
+    );
+    return totPrice;
+  }
+);
 
 //select hidden state
 
