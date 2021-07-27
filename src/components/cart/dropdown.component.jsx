@@ -1,11 +1,14 @@
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import CartItem from "./cart-item.component";
 import CommonButton from "./../common/commonbutton.component";
 import { selectCartItems } from "../../redux/selectors/cart.selectors";
+import { toggleDropdown } from "./../../redux/actions/cart.action";
+
 import "../../css/cart/dropdown.css";
 
-const Dropdown = ({ cartItems }) => (
+const Dropdown = ({ cartItems, history, dispatch }) => (
   <div className="dropdown-container">
     <div className="dropdown-contents">
       {cartItems.length ? (
@@ -26,7 +29,14 @@ const Dropdown = ({ cartItems }) => (
         </span>
       )}
     </div>
-    <CommonButton>GO TO CHECKOUT</CommonButton>
+    <CommonButton
+      onClick={() => {
+        history.push("/checkout");
+        dispatch(toggleDropdown());
+      }}
+    >
+      GO TO CHECKOUT
+    </CommonButton>
   </div>
 );
 
@@ -34,4 +44,4 @@ const mapStateToProps = (state) => ({
   cartItems: selectCartItems(state),
 });
 
-export default connect(mapStateToProps)(Dropdown);
+export default withRouter(connect(mapStateToProps)(Dropdown));

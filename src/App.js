@@ -8,6 +8,8 @@ import ShopPage from "./components/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInUp from "./components/signin-signup/signInUp.component";
 import Logout from "./components/signin-signup/logout.component";
+import Checkout from "../src/components/checkout/checkout.component";
+
 import setUser from "./redux/actions/user.action";
 
 import "./css/App.css";
@@ -36,6 +38,7 @@ class App extends Component {
           <Route path="/shop" component={ShopPage} />
           <Route path="/register-form" component={SignInUp} />
           <Route path="/logout" component={Logout} />
+          <Route path="/checkout" component={Checkout} />
         </Switch>
       </div>
     );
