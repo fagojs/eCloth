@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
 
@@ -11,6 +11,7 @@ import Logout from "./components/signin-signup/logout.component";
 import Checkout from "../src/components/checkout/checkout.component";
 
 import setUser from "./redux/actions/user.action";
+import { selectCurrentUser } from "./redux/selectors/user.selectors";
 
 import "./css/App.css";
 
@@ -30,6 +31,7 @@ class App extends Component {
   }
 
   render() {
+    const { user } = this.props;
     return (
       <div className="App">
         <Header />
@@ -38,15 +40,24 @@ class App extends Component {
           <Route path="/shop" component={ShopPage} />
           <Route path="/register-form" component={SignInUp} />
           <Route path="/logout" component={Logout} />
-          <Route path="/checkout" component={Checkout} />
+          <Route
+            path="/checkout"
+            render={() => {
+              if (!user) return <Redirect to="/register-form" />;
+              return <Checkout />;
+            }}
+          />
         </Switch>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => ({
+  user: selectCurrentUser(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -32,13 +32,13 @@ const Header = ({ user, hiddenDropdown }) => {
             <Link className="others" to="/logout">
               LOGOUT
             </Link>
+            <CartIcon />
           </React.Fragment>
         ) : (
           <Link className="others" to="/register-form">
             REGISTER
           </Link>
         )}
-        <CartIcon />
       </div>
       {hiddenDropdown ? null : <Dropdown />}
     </div>
