@@ -1,65 +1,27 @@
-import React, { Component } from "react";
-import "../../css/home/menu.css";
+import { connect } from "react-redux";
+
 import MenuItem from "./menu-item.component";
+import "../../css/home/menu.css";
+import { selectMenus } from "./../../redux/selectors/homepage.selectors";
 
-class Menu extends Component {
-  constructor() {
-    super();
-    this.state = {
-      sections: [
-        {
-          title: "Hats",
-          imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-          id: 1,
-          linkUrl: "hats",
-        },
-        {
-          title: "Jackets",
-          imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-          id: 2,
-          linkUrl: "",
-        },
-        {
-          title: "Shoes",
-          imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-          id: 3,
-          linkUrl: "",
-        },
-        {
-          title: "Mens",
-          imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-          size: "large",
-          id: 4,
-          linkUrl: "",
-        },
-        {
-          title: "Womens",
-          imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-          size: "large",
-          id: 5,
-          linkUrl: "",
-        },
-      ],
-    };
-  }
-  render() {
-    const { sections } = this.state;
-    return (
-      <div className="menu">
-        {sections.map((section) => {
-          return (
-            <MenuItem
-              key={section.id}
-              title={section.title}
-              imageUrl={section.imageUrl}
-              size={section.size}
-              linkUrl={section.linkUrl}
-            />
-          );
-        })}
-      </div>
-    );
-  }
-}
+const Menu = ({ menus }) => (
+  <div className="menu">
+    {menus.map((menu) => {
+      return (
+        <MenuItem
+          key={menu.id}
+          title={menu.title}
+          imageUrl={menu.imageUrl}
+          size={menu.size}
+          linkUrl={menu.linkUrl}
+        />
+      );
+    })}
+  </div>
+);
 
-export default Menu;
+const mapStateToProps = (state) => ({
+  menus: selectMenus(state),
+});
+
+export default connect(mapStateToProps)(Menu);
