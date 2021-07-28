@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
 import MenuItem from "./menu-item.component";
-import "../../css/home/menu.css";
 import { selectMenus } from "./../../redux/selectors/homepage.selectors";
+import "../../css/home/menu.css";
 
 const Menu = ({ menus }) => (
   <div className="menu">
