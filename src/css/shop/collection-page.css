@@ -1,0 +1,13 @@
+.collection-page {
+  display: flex;
+  flex-direction: column;
+}
+.items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem 1.2rem;
+}
+h1 {
+  font-size: 28px;
+  margin-bottom: 1.2rem;
+}
