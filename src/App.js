@@ -8,7 +8,7 @@ import ShopPage from "./components/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInUp from "./components/signin-signup/signInUp.component";
 import Logout from "./components/signin-signup/logout.component";
-import Checkout from "../src/components/checkout/checkout.component";
+import Checkout from "./components/checkout/checkout.component";
 
 import setUser from "./redux/actions/user.action";
 import { selectCurrentUser } from "./redux/selectors/user.selectors";
@@ -38,14 +38,18 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route path="/register-form" component={SignInUp} />
+          <Route
+            exact
+            path="/register-form"
+            render={() => (user ? <Redirect to="/" /> : <SignInUp />)}
+          />
           <Route path="/logout" component={Logout} />
           <Route
+            exact
             path="/checkout"
-            render={() => {
-              if (!user) return <Redirect to="/register-form" />;
-              return <Checkout />;
-            }}
+            render={() =>
+              user ? <Checkout /> : <Redirect to="/register-form" />
+            }
           />
         </Switch>
       </div>
