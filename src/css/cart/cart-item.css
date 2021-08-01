@@ -20,3 +20,14 @@
 .item-details > .item-name {
   margin-bottom: 0.6rem;
 }
+@media (max-width: 50rem) {
+  .cart-items {
+    height: 7rem;
+  }
+  .cart-items .item-img {
+    width: 40%;
+  }
+  .item-details {
+    width: 60%;
+  }
+}

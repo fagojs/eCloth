@@ -18,3 +18,28 @@
 button {
   margin-top: auto;
 }
+.empty-message {
+  height: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 50rem) {
+  .dropdown-container {
+    width: 12rem;
+    height: 16rem;
+  }
+  .dropdown-contents {
+    height: 13.5rem;
+  }
+  .empty-message {
+    font-size: 1rem;
+  }
+  .dropdown-container > .common-button {
+    min-width: unset;
+    padding: 0 0.5rem;
+    height: 2.5rem;
+    font-size: 0.85rem;
+  }
+}
