@@ -1,15 +1,10 @@
 import SignIn from "./signin.component";
 import SignUp from "./signup.component";
 
+import "../../css/signin-signup/signinup.css";
+
 const SignInUp = () => (
-  <div
-    className="signinup-container"
-    style={{
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-around",
-    }}
-  >
+  <div className="signinup-container">
     <SignIn />
     <SignUp />
   </div>
