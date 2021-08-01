@@ -16,3 +16,14 @@
 .input-field-label {
   font-size: 1.3rem;
 }
+@media (max-width: 50rem) {
+  .input-field {
+    font-size: 1rem;
+    letter-spacing: 0.09rem;
+    margin: 0.2rem 0 1.5rem 0;
+  }
+  .input-field-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+}

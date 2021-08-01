@@ -1,9 +1,9 @@
 .signin-container {
   width: 40%;
-  height: 25rem;
-  padding: 0 1rem;
+  height: 23rem;
   margin-top: 3rem;
   padding: 1rem;
+  border-radius: 0.3rem;
   box-shadow: -5px 5px 20px rgba(16, 17, 19, 0.9);
 }
 .signin-container h2 {
@@ -15,6 +15,27 @@
   display: block;
   text-align: center;
 }
-.form-container {
-  margin-top: 3rem;
+.signin-container .form-container {
+  margin: 3rem 0 1rem 0;
+}
+@media (max-width: 50rem) {
+  .signin-container {
+    height: 20rem;
+    width: 85%;
+    margin-top: 2rem;
+  }
+  .signin-container .form-container {
+    margin: 2.5rem 0 1rem 0;
+  }
+  .signin-container h2 {
+    font-size: 1.2rem;
+  }
+  .signin-container span {
+    font-size: 1rem;
+  }
+  .signin-container .common-button {
+    padding: 0 1.3rem;
+    height: 2rem;
+    min-width: unset;
+  }
 }
