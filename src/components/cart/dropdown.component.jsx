@@ -16,17 +16,7 @@ const Dropdown = ({ cartItems, history, dispatch }) => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))
       ) : (
-        <span
-          style={{
-            height: "100%",
-            fontSize: "22px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          Your Cart Is Empty.
-        </span>
+        <span className="empty-message">Your Cart Is Empty.</span>
       )}
     </div>
     <CommonButton
