@@ -6,6 +6,7 @@
   align-items: center;
   cursor: pointer;
   position: relative;
+  padding-right: 0.8rem;
 }
 .item-image {
   width: 100%;
@@ -42,4 +43,20 @@
 .collection-item:hover > .common-button {
   opacity: 0.85;
   display: block;
+}
+
+@media (max-width: 50rem) {
+  .collection-item {
+    width: 40vw;
+  }
+  .collection-item > .common-button {
+    display: block;
+    opacity: 0.75;
+    min-width: unset;
+    padding: 0 0.5rem;
+  }
+  .collection-item:hover > .common-button,
+  .collection-item:hover > .item-image {
+    opacity: unset;
+  }
 }

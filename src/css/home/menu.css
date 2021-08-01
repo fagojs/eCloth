@@ -4,3 +4,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+@media (max-width: 50rem) {
+  .menu {
+    justify-content: space-around;
+  }
+}

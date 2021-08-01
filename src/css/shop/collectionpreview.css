@@ -13,3 +13,10 @@
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 50rem) {
+  .collection-preview .preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+  }
+}

@@ -4,3 +4,8 @@
   align-items: center;
   padding: 1.3rem 5rem;
 }
+@media (max-width: 50rem) {
+  .homepage {
+    padding: 1rem 0.5rem;
+  }
+}
