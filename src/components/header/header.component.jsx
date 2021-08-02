@@ -26,11 +26,16 @@ const Header = ({ user, hiddenDropdown }) => {
         </Link>
         {user ? (
           <React.Fragment>
-            <Link className="others" to="/profile">
-              {user.currentUser.displayName}
-            </Link>
-            <Link className="others" to="/logout">
-              LOGOUT
+            <Link
+              className="others"
+              to="/logout"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <span>LOGOUT</span>
+              <span>{user.currentUser.displayName}</span>
             </Link>
             <CartIcon />
           </React.Fragment>
